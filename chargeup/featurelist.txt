@@ -6,5 +6,5 @@ maven component
 some example
 some test
 spring ability
-database meta data
+database meta data(support mysql)
 war package

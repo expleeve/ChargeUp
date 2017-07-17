@@ -1,0 +1,44 @@
+account
+		id --账目ID
+        amount    --金额
+        coin_type   --币种，默认1为人民币
+        user_id    --支出人ID
+        insert_time   --支出时间
+        update_time  --修改时间
+        remarks  --备注
+        description  --描述
+        isvalid  --是否有效
+        belong_folder_id  --所属账本ID
+		type_id  --类别ID
+		
+type
+        id --类型ID
+        type_name --类型名
+        desc_eng --英文描述
+        desc_chn --中文描述
+		
+cointype
+        id --币种ID
+        coin_name --币种名称
+        desc_eng --英文描述
+        desc_chn --中文描述
+		
+users
+        id --用户ID
+        username --用户名
+        password --密码
+        displayname --显示名称
+        desc4user --用户描述
+        insert_time --插入时间
+        is_login --是否登录
+        isvalid --是否有效
+
+booksfolder
+        id --账本ID
+        foldername --账本名
+        desc4folder --描述
+        encrypt --是否加密
+        user_id --所属用户ID
+        usergroup_id --所属用户组ID
+        password --密码
+        insert_time --创建时间
