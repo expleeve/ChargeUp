@@ -5,11 +5,7 @@
   <groupId>com.expleeve</groupId>
   <artifactId>chargeup</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
 
-  <name>chargeup</name>
-  <url>http://maven.apache.org</url>
-  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
@@ -20,19 +16,19 @@
   <parent>  
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-parent</artifactId>  
-      <version>1.3.3.RELEASE</version>  
+      <version>1.5.4.RELEASE</version>  
   </parent> 
 
   <dependencies>
+  	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>1.2.31</version>
+	</dependency>
     <dependency>
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
 	    <scope>test</scope>
-	</dependency>
-    <dependency>
-	  <groupId>org.mybatis</groupId>
-	  <artifactId>mybatis</artifactId>
-	  <version>3.4.3</version>
 	</dependency>
 	<dependency>
         <groupId>mysql</groupId>
@@ -56,6 +52,11 @@
          <artifactId>spring-boot-starter-test</artifactId>
          <scope>test</scope>
      </dependency>
+<!--  Support hot deploy, delete while in produce env. -->
+     <dependency>  
+       <groupId>org.springframework.boot</groupId>  
+       <artifactId>spring-boot-devtools</artifactId>   
+   	 </dependency> 
   </dependencies>
   
   <build>

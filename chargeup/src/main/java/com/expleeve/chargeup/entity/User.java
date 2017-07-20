@@ -1,8 +1,19 @@
-package com.expleeve.chargeup.model;
+package com.expleeve.chargeup.entity;
 
 import java.util.Date;
 
-public class Users {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
     private String username;

@@ -1,4 +1,5 @@
-package com.expleeve.chargeup.model;
+package com.expleeve.chargeup.entity;
+
 
 public class CoinType {
     private Integer id;
