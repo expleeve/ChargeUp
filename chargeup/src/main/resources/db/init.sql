@@ -1,59 +1,64 @@
 -- 账目
-drop table if exists account;
-create table account(
-        id int not null auto_increment primary key, 
-        amount decimal(20,6) default 0, 
-        coin_type int not null default 1,  
-        user_id int not null,      
-        insert_time datetime default current_timestamp,
-        update_time datetime,   
-        remarks varchar(255),  
-        description varchar(255),
-        isvalid  boolean default true,
-        belong_folder_id int,
-        type_id int
-);
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` decimal(20,6) DEFAULT '0.000000',
+  `coin_type` int(11) NOT NULL DEFAULT '1',
+  `user_id` int(11) NOT NULL,
+  `insert_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
+  `remarks` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `isvalid` tinyint(1) DEFAULT '1',
+  `belong_folder_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         
 -- 类别
-drop table if exists type;
-create table type(
-        id int auto_increment primary key,
-        type_name varchar(255) not null,
-        desc_eng varchar(255),
-        desc_chn varchar(255)
-);
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `desc_eng` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `desc_chn` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 币种
-drop table if exists cointype;
-create table cointype(
-        id int auto_increment primary key,
-        coin_name varchar(255) not null,
-        desc_eng varchar(255),
-        desc_chn varchar(255)
-);
+DROP TABLE IF EXISTS `cointype`;
+CREATE TABLE `cointype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coin_name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `desc_eng` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `desc_chn` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 用户表
-drop table if exists users;
-create table users(
-        id int auto_increment primary key,
-        username varchar(255) not null,
-        password varchar(65) not null,
-        displayname varchar(255) not null,
-        desc4user varchar(255),
-        insert_time datetime not null default current_timestamp,
-        is_login boolean default false,
-        isvalid boolean default true
-);
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(65) CHARACTER SET latin1 NOT NULL,
+  `displayname` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `desc4user` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `insert_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_login` tinyint(1) DEFAULT '0',
+  `isvalid` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 账本
-drop table if exists booksfolder;
-create table booksfolder(
-        id int auto_increment primary key,
-        foldername varchar(255) not null,
-        desc4folder varchar(255),
-        encrypt boolean default false,
-        user_id int not null,
-        usergroup_id int not null,
-        password varchar(65),
-        insert_time datetime not null default current_timestamp
-);
+DROP TABLE IF EXISTS `booksfolder`;
+CREATE TABLE `booksfolder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `foldername` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `desc4folder` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `encrypt` tinyint(1) DEFAULT '0',
+  `user_id` int(11) NOT NULL,
+  `usergroup_id` int(11) NOT NULL,
+  `password` varchar(65) CHARACTER SET latin1 DEFAULT NULL,
+  `insert_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

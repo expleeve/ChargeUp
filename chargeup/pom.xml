@@ -5,26 +5,30 @@
   <groupId>com.expleeve</groupId>
   <artifactId>chargeup</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 
   <name>chargeup</name>
   <url>http://maven.apache.org</url>
-
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>1.5.2.RELEASE</spring.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 	<timestamp>${maven.build.timestamp}</timestamp>
 	<mysql.connector.version>5.1.30</mysql.connector.version>
   </properties>
+  
+  <parent>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-parent</artifactId>  
+      <version>1.3.3.RELEASE</version>  
+  </parent> 
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <scope>test</scope>
+	</dependency>
     <dependency>
 	  <groupId>org.mybatis</groupId>
 	  <artifactId>mybatis</artifactId>
@@ -33,24 +37,23 @@
 	<dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql.connector.version}</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
-        <version>${spring.version}</version>
-        <exclusions>
-        	<exclusion>
-        		<groupId>org.springframework.boot</groupId>
-        		<artifactId>spring-boot-starter-tomcat</artifactId>
-        	</exclusion>
-        </exclusions>
+    </dependency>
+    <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>  
+    </dependency>
+    <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-data-jpa</artifactId>  
     </dependency>
     
     <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-test</artifactId>
-         <version>${spring.version}</version>
          <scope>test</scope>
      </dependency>
   </dependencies>
@@ -61,56 +64,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <port>8080</port>
-                    <path>/${project.build.finalName}</path>
-                    <uriEncoding>UTF-8</uriEncoding>
-                    <server>tomcat7</server>
-                </configuration>
-            </plugin>
-            <plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-war-plugin</artifactId>
-			    <version>2.1.1</version>
-			    <configuration>
-			      <webResources>
-			        <resource>
-			          <directory>src/main/webapp</directory>
-			        </resource>
-			      </webResources>
-			    </configuration>
-			</plugin>
-			 <plugin>  
-                <groupId>org.apache.maven.plugins</groupId>  
-                <artifactId>maven-resources-plugin</artifactId>  
-                <version>2.6</version>  
-                <executions>  
-                    <execution>  
-                        <id>copy-resources</id>  
-                        <phase>process-resources</phase>  
-                        <goals>  
-                            <goal>resources</goal>  
-                        </goals>  
-                        <configuration>  
-                            <encoding>UTF-8</encoding>  
-                            <outputDirectory>${project.build.directory}/${project.deploy}</outputDirectory>  
-                            <resources>  
-                                <resource>  
-                                    <directory>src/main/resources/</directory>  
-                                    <includes>  
-                                        <include>*.xml</include>  
-                                    </includes>  
-                                </resource>  
-                            </resources>  
-                        </configuration>  
-                    </execution>  
-                </executions>  
+			<plugin>       
+                <artifactId>maven-compiler-plugin</artifactId>       
+                <configuration>       
+                    <source>1.8</source>       
+                    <target>1.8</target>
+                </configuration>       
             </plugin>  
         </plugins>
-   		<finalName>chargeup</finalName>
     </build>
 </project>
