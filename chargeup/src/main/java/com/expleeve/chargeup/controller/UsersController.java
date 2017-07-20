@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.expleeve.chargeup.entity.User;
 import com.expleeve.chargeup.service.UsersService;
 
 /**
@@ -16,14 +17,29 @@ import com.expleeve.chargeup.service.UsersService;
  *
  */
 @RestController
+@RequestMapping("/users")
 public class UsersController {
 	
 	@Autowired
 	private UsersService userService;
 
-	@RequestMapping("/users")
+	@RequestMapping("/findAll")
 	@ResponseBody
 	public String findAll(){
 		return JSON.toJSONString(userService.findAll());
 	}
+	
+	@RequestMapping("/saveOne")
+	public void saveOne(){
+		User user = new User();
+		user.setUsername("test2");
+		user.setPassword("pass2");
+		user.setDisplayname("dis_test2");
+		try {
+			userService.saveUser(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	} 
 }

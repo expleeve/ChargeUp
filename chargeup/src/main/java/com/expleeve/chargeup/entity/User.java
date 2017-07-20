@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+
+import com.expleeve.chargeup.util.DateUtil;
 
 @Entity
 @Table(name="users")
@@ -93,4 +96,10 @@ public class User {
     public void setIsvalid(Boolean isvalid) {
         this.isvalid = isvalid;
     }
+    
+    @PrePersist
+    public void before(){
+    	this.insertTime = DateUtil.getCurrentDate();
+    }
+    
 }

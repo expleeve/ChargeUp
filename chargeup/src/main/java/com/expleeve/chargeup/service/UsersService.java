@@ -2,6 +2,8 @@ package com.expleeve.chargeup.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +22,11 @@ public class UsersService {
 	
 	public List<User> findAll(){
 		return repository.findAll();
+	}
+	
+	@Transactional
+	public void saveUser(User user) throws Exception{
+		repository.save(user);
+		throw new Exception("");
 	}
 }
