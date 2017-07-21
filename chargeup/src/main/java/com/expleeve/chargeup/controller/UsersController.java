@@ -35,11 +35,6 @@ public class UsersController {
 		user.setUsername("test2");
 		user.setPassword("pass2");
 		user.setDisplayname("dis_test2");
-		try {
-			userService.saveUser(user);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		userService.saveUser(user);
 	} 
 }

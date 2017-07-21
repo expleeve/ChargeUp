@@ -25,8 +25,7 @@ public class UsersService {
 	}
 	
 	@Transactional
-	public void saveUser(User user) throws Exception{
+	public void saveUser(User user){
 		repository.save(user);
-		throw new Exception("");
 	}
 }
