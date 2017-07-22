@@ -2,10 +2,13 @@ package com.expleeve.chargeup.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.expleeve.chargeup.consts.ResultState;
+import com.expleeve.chargeup.dto.ResultDTO;
 import com.expleeve.chargeup.entity.User;
 import com.expleeve.chargeup.service.UsersService;
 
@@ -29,12 +32,15 @@ public class UsersController {
 		return JSON.toJSONString(userService.findAll());
 	}
 	
-	@RequestMapping("/saveOne")
-	public void saveOne(){
-		User user = new User();
-		user.setUsername("test2");
-		user.setPassword("pass2");
-		user.setDisplayname("dis_test2");
-		userService.saveUser(user);
+	@RequestMapping(value = "/saveOne", method = RequestMethod.POST)
+	@ResponseBody
+	public ResultDTO saveOne(User user){
+		boolean res = userService.saveUser(user);
+		ResultDTO dto = new ResultDTO();
+		if(!res){
+			dto.setState(ResultState.FAILURE);
+			dto.setMsg("0000000001");
+		}
+		return dto;
 	} 
 }

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.expleeve.chargeup.dao.UsersDao;
 import com.expleeve.chargeup.dao.UsersRepository;
 import com.expleeve.chargeup.entity.User;
 
@@ -20,12 +21,15 @@ public class UsersService {
 	@Autowired
 	private UsersRepository repository;
 	
+	@Autowired
+	private UsersDao dao;
+	
 	public List<User> findAll(){
 		return repository.findAll();
 	}
 	
 	@Transactional
-	public void saveUser(User user){
-		repository.save(user);
+	public boolean saveUser(User user){
+		return dao.saveUser(user);
 	}
 }
