@@ -33,7 +33,7 @@ public class UsersController {
 	}
 	
 	@RequestMapping(value = "/saveOne", method = RequestMethod.POST)
-	@ResponseBody
+//	@ResponseBody
 	public ResultDTO saveOne(User user){
 		boolean res = userService.saveUser(user);
 		ResultDTO dto = new ResultDTO();

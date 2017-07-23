@@ -3,6 +3,7 @@ package com.expleeve.chargeup.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,12 +14,15 @@ public class Account {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
+	@Column(nullable = false)
     private BigDecimal amount;
 
+	@Column(nullable = false)
     private Integer coinType;
 
+	@Column(nullable = false)
     private Integer userId;
 
     private Date insertTime;
@@ -33,13 +37,14 @@ public class Account {
 
     private Integer belongFolderId;
 
+    @Column(nullable = false)
     private Integer typeId;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

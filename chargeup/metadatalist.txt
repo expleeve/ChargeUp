@@ -1,44 +1,44 @@
-account
-		id --ÕËÄ¿ID
-        amount    --½ğ¶î
-        coin_type   --±ÒÖÖ£¬Ä¬ÈÏ1ÎªÈËÃñ±Ò
-        user_id    --Ö§³öÈËID
-        insert_time   --Ö§³öÊ±¼ä
-        update_time  --ĞŞ¸ÄÊ±¼ä
-        remarks  --±¸×¢
-        description  --ÃèÊö
-        isvalid  --ÊÇ·ñÓĞĞ§
-        belong_folder_id  --ËùÊôÕË±¾ID
-		type_id  --Àà±ğID
+ï»¿account
+		id --è´¦ç›®ID
+        amount    --é‡‘é¢
+        coin_type   --å¸ç§ï¼Œé»˜è®¤1ä¸ºäººæ°‘å¸
+        user_id    --æ”¯å‡ºäººID
+        insert_time   --æ”¯å‡ºæ—¶é—´
+        update_time  --ä¿®æ”¹æ—¶é—´
+        remarks  --å¤‡æ³¨
+        description  --æè¿°
+        isvalid  --æ˜¯å¦æœ‰æ•ˆ
+        belong_folder_id  --æ‰€å±è´¦æœ¬ID
+		type_id  --ç±»åˆ«ID
 		
 type
-        id --ÀàĞÍID
-        type_name --ÀàĞÍÃû
-        desc_eng --Ó¢ÎÄÃèÊö
-        desc_chn --ÖĞÎÄÃèÊö
+        id --ç±»å‹ID
+        type_name --ç±»å‹å
+        desc_eng --è‹±æ–‡æè¿°
+        desc_chn --ä¸­æ–‡æè¿°
 		
 cointype
-        id --±ÒÖÖID
-        coin_name --±ÒÖÖÃû³Æ
-        desc_eng --Ó¢ÎÄÃèÊö
-        desc_chn --ÖĞÎÄÃèÊö
+        id --å¸ç§ID
+        coin_name --å¸ç§åç§°
+        desc_eng --è‹±æ–‡æè¿°
+        desc_chn --ä¸­æ–‡æè¿°
 		
 users
-        id --ÓÃ»§ID
-        username --ÓÃ»§Ãû
-        password --ÃÜÂë
-        displayname --ÏÔÊ¾Ãû³Æ
-        desc4user --ÓÃ»§ÃèÊö
-        insert_time --²åÈëÊ±¼ä
-        is_login --ÊÇ·ñµÇÂ¼
-        isvalid --ÊÇ·ñÓĞĞ§
+        id --ç”¨æˆ·ID
+        username --ç”¨æˆ·å
+        password --å¯†ç 
+        displayname --æ˜¾ç¤ºåç§°
+        desc4user --ç”¨æˆ·æè¿°
+        insert_time --æ’å…¥æ—¶é—´
+        is_login --æ˜¯å¦ç™»å½•
+        isvalid --æ˜¯å¦æœ‰æ•ˆ
 
 booksfolder
-        id --ÕË±¾ID
-        foldername --ÕË±¾Ãû
-        desc4folder --ÃèÊö
-        encrypt --ÊÇ·ñ¼ÓÃÜ
-        user_id --ËùÊôÓÃ»§ID
-        usergroup_id --ËùÊôÓÃ»§×éID
-        password --ÃÜÂë
-        insert_time --´´½¨Ê±¼ä
+        id --è´¦æœ¬ID
+        foldername --è´¦æœ¬å
+        desc4folder --æè¿°
+        encrypt --æ˜¯å¦åŠ å¯†
+        user_id --æ‰€å±ç”¨æˆ·ID
+        usergroup_id --æ‰€å±ç”¨æˆ·ç»„ID
+        password --å¯†ç 
+        insert_time --åˆ›å»ºæ—¶é—´

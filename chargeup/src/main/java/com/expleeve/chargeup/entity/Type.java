@@ -1,7 +1,7 @@
 package com.expleeve.chargeup.entity;
 
 public class Type {
-    private Integer id;
+    private Long id;
 
     private String typeName;
 
@@ -9,11 +9,11 @@ public class Type {
 
     private String descChn;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
