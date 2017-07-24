@@ -32,15 +32,16 @@ public class UsersController {
 		return JSON.toJSONString(userService.findAll());
 	}
 	
-	@RequestMapping(value = "/saveOne", method = RequestMethod.POST)
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
 //	@ResponseBody
-	public ResultDTO saveOne(User user){
+	public ResultDTO signUp(User user){
 		boolean res = userService.saveUser(user);
 		ResultDTO dto = new ResultDTO();
 		if(!res){
 			dto.setState(ResultState.FAILURE);
-			dto.setMsg("0000000001");
+			dto.setMsg("用户已存在");
 		}
 		return dto;
 	} 
+	
 }
